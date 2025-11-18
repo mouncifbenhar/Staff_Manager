@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Nova+Square&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+body{
+background-color:#F4F4F4;
+margin: 0;
+padding: 0;
+font-family: "Nova Square", sans-serif;
+font-weight: 400;
+font-style: normal;
+}
+main{
+margin: 1rem;
+}
+.head{
+ background-color:#0A2540 ;
+ color:#F4F4F4;
+ height: 10rem;
+ border-radius: 1rem; 
+ display:flex;
+ justify-content: center;
+ align-items: center;
+ box-shadow: 1px 1px 5px black;
+ 
+}
+.the_main_box{
+margin-top: 1rem; 
+display: flex;
+height: 75vh;
+color: #F4F4F4;
+}
+.sidebar{
+background-color: #F4F4F4;
+width: 30%;
+border: 4px solid #0A2540 ;
+border-radius: 1rem;
+box-shadow: 1px 1px 5px black;
+}
+.text_bar{
+background-color:#0A2540 ;
+width: 100%;
+height: 3rem;
+border-radius:0.5rem  0.5rem 0 0;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.new_staff{
+    padding: 0.7rem;
+}
+.btn_Add_Worker{
+    width: 100%;
+    height: 3rem;
+    background-color:#2ABD68;
+    border-radius: 0.7rem;
+    border: none;
+    color: #F4F4F4;
+    font-family: "Nova Square", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+ button:hover{
+    background-color: #28A745;
+}
+.main_flor_plan{
+    width: 100%;
+    border-radius: 1rem;
+    border: 4px solid #0A2540;
+    margin-left: 1rem;
+    box-shadow: 1px 1px 5px black;
+}
+.Zone-staff_plan{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) ;
+    margin: 1rem;
+    gap: 1rem;
+}
+.zone{
+    
+    height:16.5vw;
+    border: 4px solid #0A2540;
+    border-radius: 1rem;
+    display: flex;
+}
+.Zone-staff{
+    display: flex;
+    flex-direction: column;
+}
+.plus{
+    border: none;
+    background-color: #2ABD68;
+    color: #F4F4F4;
+    width: 1.5rem;
+    height:1.5rem;
+    border-radius: 0.5rem;
+    margin: 0.3rem;
+    position: absolute;
+    align-self:end;
+}
+#menu-btn{
+    display: none;
+}
+#menu-btn-c{
+    display:none;
+}
+
+@media(max-width: 1023px) and (min-width: 768px) {
+.the_main_box{
+flex-direction:column ;
+align-items: center;
+height: 150vh;
+}
+.Zone-staff_plan{
+    grid-template-columns: repeat(2, 1fr) ;
+}
+.main_flor_plan{
+    height: 130vh;
+    margin-top: 1rem;
+    margin-left: 0;
+}
+.sidebar{
+width: 100%;
+height: 35rem;
+}
+.zone{
+    height:25vw;
+}
+}  
+@media (max-width: 767px) {
+#menu-btn,#menu-btn-c{
+    color: #F4F4F4;
+    border: none;
+    position: absolute;
+    align-self: start;
+    left: 1rem; 
+    margin: 1rem; 
+    background-color: #0A2540;
+    display: block;
+}
+
+.main_flor_plan{
+    height: 201vh;
+    position: relative;
+    right:0.4rem;
+}
+.zone{
+    height:49vw;
+}
+.Zone-staff_plan{
+    grid-template-columns:1fr;
+}
+.sidebar{
+position: fixed;
+left: 0;
+top: 0;
+height: 100vh;
+width: 30rem;  
+border-radius: 0rem 1rem 0rem 0rem;        
+transform: translateX(-100%);   
+z-index: 999;
+}
+.text_bar{
+ border-radius: 0;
+}
+.sidebar.open{
+    transform: translateX(0);
+    transition: 0.3s;  
+} 
+}
+ 
+
+    
+    
+    
+    
+    
+
+
