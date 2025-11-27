@@ -8,42 +8,127 @@
 </head>
 <body>
  <main>
-       
-      <div class="head"><h1>Staff Manager</h1><button id="menu-btn">☰</button></div>
+      <div class="head">
+          <h1>Staff Manager</h1>
+          <button id="menu-btn">☰</button>
+      </div>
       
       <section class="the_main_box">
          <div class="sidebar">
-         <div class="text_bar"><h3>Unassigned</h3><button id="menu-btn-c">☰</button></div>
-         <div class="new_staff">
-         <button class="btn_Add_Worker"><h3>Add Worker</h3></button>
+             <div class="text_bar">
+                 <h3>Unassigned</h3>
+                 <button id="menu-btn-c">☰</button>
+             </div>
+             <div class="new_staff" id="staff-list">
+                 <button id="btn_Add_Worker"><h3>Add Worker</h3></button>
+                 <div id="unassigned-staff"></div>
+             </div>
          </div>
-        </div>
-       <div class="main_flor_plan"><div class="text_bar"><h3>flor plan</h3></div>
-            <div class="Zone-staff_plan">
-            <div class="zone"><div class="text_bar"><h3>Meetings</h3><div class="Zone-staff"></div></div><button class="plus">+</button></div>
-            <div class="zone"><div class="text_bar"><h3>Reception</h3><div class="Zone-staff"></div></div><button class="plus">+</button></div>
-            <div class="zone"><div class="text_bar"><h3>Services</h3><div class="Zone-staff"></div></div><button class="plus">+</button></div>
-            <div class="zone"><div class="text_bar"><h3>Security</h3><div class="Zone-staff"></div></div><button class="plus">+</button></div>
-            <div class="zone"><div class="text_bar"><h3>Staff</h3><div class="Zone-staff"></div></div><button class="plus">+</button></div>
-            <div class="zone"><div class="text_bar"><h3>Archives</h3><div class="Zone-staff"></div></div><button class="plus">+</button></div>
-            </div>
-       </div>
-       </section>
-       <div class="cercl"></div>
-       <div class="cercl_a"></div>
+         
+         <div class="main_flor_plan">
+             <div class="text_bar"><h3>Floor Plan</h3></div>
+             <div class="Zone-staff_plan">
+                 <div class="zone" data-zone="meeting">
+                     <div class="text_bar"><h3>Meetings</h3></div>
+                     <div class="Zone-staff"></div>
+                     <button class="plus">+</button>
+                     <div class="zone-limit">Limit: 10</div>
+                 </div>
+                 <div class="zone" data-zone="reception">
+                     <div class="text_bar"><h3>Reception</h3></div>
+                     <div class="Zone-staff"></div>
+                     <button class="plus">+</button>
+                     <div class="zone-limit">Limit: 2</div>
+                 </div>
+                 <div class="zone" data-zone="server">
+                     <div class="text_bar"><h3>Server Room</h3></div>
+                     <div class="Zone-staff"></div>
+                     <button class="plus">+</button>
+                     <div class="zone-limit">Limit: 3</div>
+                 </div>
+                 <div class="zone" data-zone="security">
+                     <div class="text_bar"><h3>Security</h3></div>
+                     <div class="Zone-staff"></div>
+                     <button class="plus">+</button>
+                     <div class="zone-limit">Limit: 4</div>
+                 </div>
+                 <div class="zone" data-zone="staff">
+                     <div class="text_bar"><h3>Staff Room</h3></div>
+                     <div class="Zone-staff"></div>
+                     <button class="plus">+</button>
+                     <div class="zone-limit">Limit: 15</div>
+                 </div>
+                 <div class="zone" data-zone="archive">
+                     <div class="text_bar"><h3>Archives</h3></div>
+                     <div class="Zone-staff"></div>
+                     <button class="plus">+</button>
+                     <div class="zone-limit">Limit: 2</div>
+                 </div>
+             </div>
+         </div>
+      </section>
+      
+      
+      <div id="addworkermodal" class="modal hidden">
+         <div class="modal-content">
+             <span id="closeModal" class="close">&times;</span> 
+             <h2>Add New Worker</h2>
+             <img id="photoPreview" src="" alt="Photo Preview">
+             <form id="workerForm">
+                 <label for="name">Name:</label>
+                 <input class="input" type="text" id="name" required />
+                 <div class="error-message" id="nameError"></div>
+                 
+                 <label for="photo">Photo URL:</label>
+                 <input class="input" type="url" id="photo">
+                 <div class="error-message" id="photoError"></div>
+                      
+                 <label for="email">Email:</label>
+                 <input class="input" type="email" id="email" required>
+                 <div class="error-message" id="emailError"></div>
+                      
+                 <label for="phone">Phone:</label>
+                 <input class="input" type="tel" id="phone" required>
+                 <div class="error-message" id="phoneError"></div>
+     
+                 <label for="role">Role:</label>
+                 <select id="role" class="input" required>
+                     <option value="">Select Role</option>
+                     <option value="reception">Reception</option>
+                     <option value="it">IT Technician</option>
+                     <option value="security">Security Officer</option>
+                     <option value="manager">Manager</option>
+                     <option value="cleaning">Cleaning Staff</option>
+                     <option value="other">Other</option>
+                 </select>
+                 <div class="error-message" id="roleError"></div>
+     
+                 <div id="experience"></div>
+                 <button type="button" id="add-experience-btn">Add Experience</button>
+                 <button id="submit" type="submit">Submit</button>
+             </form>
+         </div>
+      </div> 
+       
+     
+      <div id="assignModal" class="modal hidden">
+          <div class="modal-content">
+              <span id="closeAssignModal" class="close">&times;</span>
+              <h2>Assign Worker to Zone</h2>
+              <div id="assignList"></div>
+          </div>
+      </div>
+
+    
+      <div id="staffDetailModal" class="modal hidden">
+          <div class="modal-content">
+              <span id="closeDetailModal" class="close">&times;</span>
+              <h2>Staff Details</h2>
+              <div id="staffDetailContent"></div>
+          </div>
+      </div>
  </main>
+
 <script src="main.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
